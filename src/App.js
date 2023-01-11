@@ -1,18 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from '@mui/material/Button';
+import Navbar from './Components/Navbar';
+import TextFields from './Components/Textfield';
+import About from './Components/About'
 
 let sname = "aakash";
 function App() 
 {
   return (
-    <>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      {/* <h1 className="a1">This is head</h1>
-      <div className='d1'>This is a div</div>
-      <h2>hello {sname}</h2> */}
-    </>
+    <div className='d1'>
+       <Navbar title ={"Logo"} Home={"Home"} about= {"About"}/>
+      <div className="container my-3">
+        <TextFields heading ={"Enter your text"}/>
+      </div>
+      
+      <div className="container my-3">
+        <About/>
+      </div>
+      
+    </div>
     
   );
 }
