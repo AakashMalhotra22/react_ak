@@ -67,7 +67,7 @@ function App() {
        
 
       <div className="container my-3">
-      <TextFields heading ={"Enter your text"} mode1={mode1} showalertfn={showalert}/>
+        <TextFields heading ={"Enter your text"} mode1={mode1} showalertfn={showalert}/>
         {/* <Routes>
           <Route path="/About" element={<About/>}/>
             
