@@ -6,12 +6,12 @@ import TextFields from './Components/Textfield';
 import About from './Components/About'
 import Alert from './Components/Alert'
 import {useState} from 'react'
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -61,22 +61,21 @@ function App() {
 
   return (
     <div className='d1'>
-      {/* <Router> */}
+      <Router>
        <Navbar title ={"Logo"} Home={"Home"} about= {"About"} mode ={mode} darkmode={darkmode}/>
        <Alert alert ={alert}/>
        
 
       <div className="container my-3">
-        <TextFields heading ={"Enter your text"} mode1={mode1} showalertfn={showalert}/>
-        {/* <Routes>
+        <Routes>
           <Route path="/About" element={<About/>}/>
             
           <Route path="/" 
           element={<TextFields heading ={"Enter your text"} mode1={mode1} showalertfn={showalert}/>}/>
         </Routes>
-         */}
+        
       </div>      
-      {/* </Router> */}
+      </Router>
     </div>
     
   );
