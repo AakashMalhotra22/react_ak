@@ -4,21 +4,77 @@ import Button from '@mui/material/Button';
 import Navbar from './Components/Navbar';
 import TextFields from './Components/Textfield';
 import About from './Components/About'
+import Alert from './Components/Alert'
+import {useState} from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
-let sname = "aakash";
-function App() 
-{
+function App() {
+
+  const [mode, setmode] = useState("light");
+  const [mode1,setmode1] = useState
+  ({
+    color:'black'
+  });
+  
+  const[alert,setalert] = useState(null);
+
+  function showalert(message,type){
+    setalert(
+      {
+        msg: message,
+        type: type
+      })
+      setTimeout(()=>{
+        setalert(null)
+      },2000);
+  }
+
+  function darkmode()
+  {
+    if(mode==='light')
+    {
+      setmode("dark");
+      setmode1({
+        color:'white'
+      })
+      document.body.style.backgroundColor='#042743'
+      showalert("Dark Mode is enabled", "Success");
+      
+    }
+    else
+    {
+      setmode("light");
+      setmode1({
+        color:'black'
+      })
+      document.body.style.backgroundColor='white'
+      showalert("Light Mode is enabled", "Success");
+      
+    }
+  }
+
+
   return (
     <div className='d1'>
-       <Navbar title ={"Logo"} Home={"Home"} about= {"About"}/>
+      <Router>
+       <Navbar title ={"Logo"} Home={"Home"} about= {"About"} mode ={mode} darkmode={darkmode}/>
+       <Alert alert ={alert}/>
+
       <div className="container my-3">
-        <TextFields heading ={"Enter your text"}/>
-      </div>
-      
-      <div className="container my-3">
-        <About/>
-      </div>
-      
+        <Routes>
+          <Route path="/About" element={<About/>}/>
+            
+          <Route path="/" 
+          element={<TextFields heading ={"Enter your text"} mode1={mode1} showalertfn={showalert}/>}/>
+        </Routes>
+        
+      </div>      
+      </Router>
     </div>
     
   );

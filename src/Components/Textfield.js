@@ -8,6 +8,8 @@ export default function TextFields(props)
         console.log(text);
         let temp = text.toUpperCase();      
         setText(temp);
+        props.showalertfn("Changed to Upper Case", "Success");
+
     }
     function fn1(event)
     {
@@ -20,16 +22,30 @@ export default function TextFields(props)
         console.log(text);
         let temp = text.toLowerCase();      
         setText(temp);
+        props.showalertfn("Changed to lower Case", "Success");
     }
 
     function fn3()
     {      
         setText("");
+        props.showalertfn("Cleared", "Success");
     }
     const [text,setText]=useState("");
 
+    function prv()
+    {
+        if(text.length==0)
+        {
+            return "Enter text in text box to preview it";
+        }
+        return text;
+    }
+
+
+
+
   return (
-    <>
+    <div style ={props.mode1}>
         <h2>{props.heading}</h2>
         <div className="mb-3">
         <textarea className="form-control" id="wordapp" rows="6" value={text} onChange={fn1}></textarea>
@@ -41,26 +57,15 @@ export default function TextFields(props)
 
         <div className="my-3">
         <h2>Your text Summary</h2>
-        <p>Total words are {text.split(" ").length} Character count is {text.length}</p>
+        <p>Total words are {text.length==0? 0:text.split(" ").length} Character count is {text.length}</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{prv()}</p>
         </div>
-    </>
+    </div>
   );
 }
 
 
 
 
-    
-
-// <Stack spacing={10} direction="row">
-//         <Button variant="outlined" >Convert To Upper Case</Button>
-//         </Stack>
-//         <Stack spacing={10} direction="row">
-//         <Button variant="outlined" onClick={fn2}>Convert To Lower Case</Button>
-//         </Stack>
-
-//         <Stack spacing={10} direction="row">
-//         <Button variant="outlined" onClick={fn3}>clear text</Button>
-//         </Stack>
+   
