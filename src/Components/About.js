@@ -16,7 +16,7 @@ export default function About()
 
     function fn1()
     {
-        if(mystyle.color=='black')
+        if(mystyle.color==='black')
         {
             setstyle({
                 color:'white',
@@ -27,7 +27,7 @@ export default function About()
                 type: 'btn btn-light my-3'
             });
         }
-        else if(mystyle.color=='white')
+        else if(mystyle.color==='white')
         {
             let ob1=
             {

@@ -34,7 +34,7 @@ export default function TextFields(props)
 
     function prv()
     {
-        if(text.length==0)
+        if(text.length===0)
         {
             return "Enter text in text box to preview it";
         }
@@ -57,7 +57,7 @@ export default function TextFields(props)
 
         <div className="my-3">
         <h2>Your text Summary</h2>
-        <p>Total words are {text.length==0? 0:text.split(" ").length} Character count is {text.length}</p>
+        <p>Total words are {text.length===0? 0:text.split(" ").length} Character count is {text.length}</p>
         <h2>Preview</h2>
         <p>{prv()}</p>
         </div>
